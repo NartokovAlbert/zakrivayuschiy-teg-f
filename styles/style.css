@@ -1,45 +1,23 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-
-*/
-
-.filter-grayscale {
-  filter: grayscale(70%);
+.header {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  font-family: var(--second-font__family, "PressStart2P", fantasy);
+  line-height: normal;
+  text-transform: uppercase;
 }
 
-.filter-multiple {
-  filter: contrast(50%) hue-rotate(35deg) saturate(130%);
+.header__title {
+  margin-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  margin-block-end: 25px;
 }
 
-.filter-hue-rotate {
-  filter: hue-rotate(210deg);
+.header__subtitle {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
 
-.filter-saturate {
-  filter: saturate(250%);
-}
-
-.filter-invert {
-  filter: invert(100%);
-}
-
-.filter-sepia {
-  filter: sepia(90%);
-}
-
-.filter-blur {
-  filter: blur(10px);
+.header__theme-menu {
+  margin-block: 25px;
 }
 
 .page__header {
@@ -50,7 +28,7 @@
   border: 2px solid var(--text-color, #000000);
   padding: 25px 30px;
   color: var(--text-color, #000000);
-  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
+  font-family: var(--second-font__family, "PressStart2P", fantasy);
   line-height: 1.5;
   text-transform: uppercase;
   background: var(--background-color, #ffffff);
@@ -82,32 +60,6 @@
 
 .modal__button {
   inline-size: 100%;
-}
-
-.page-title {
-  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-}
-
-.header {
-  display: grid;
-  justify-items: center;
-  justify-content: center;
-  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
-  line-height: normal;
-  text-transform: uppercase;
-}
-
-.header__title {
-  margin-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
-  margin-block-end: 20px;
-}
-
-.header__subtitle {
-  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-}
-
-.header__theme-menu {
-  margin-block: 25px;
 }
 
 .theme-menu__list {
@@ -174,7 +126,7 @@
 
 .cards-list {
   display: grid;
-  gap: 52px;
+  gap: 54px;
 }
 
 .card {
@@ -192,7 +144,7 @@
 .card__title {
   font-size: 18px;
   line-height: normal;
-  font-variation-settings: "wght" var(--headings-font-weight, 700);
+  font-variation-settings: "wght" var(--font-weight-title, 700);
 }
 
 .card__img-wrapper {
@@ -203,20 +155,15 @@
 .card__img-label {
   position: absolute;
   z-index: 1;
-
   opacity: 0.5;
-
   color: var(--text-color, #000000);
-  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
-
+  font-family: var(--second-font__family, "PressStart2P", fantasy);
   font-size: 14px;
   line-height: normal;
-
   text-transform: uppercase;
   text-shadow: 0 0 1px var(--background-color, #ffffff);
   inset-inline-end: 13px;
   inset-block-start: 24px;
-
   mix-blend-mode: hard-light;
 }
 
@@ -268,7 +215,7 @@
   z-index: 1;
   border: 2px solid var(--text-color, #000000);
   padding: 10px 36px;
-  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
+  font-family: var(--second-font__family, "PressStart2P", fantasy);
   font-size: 14px;
   text-transform: inherit;
   background: var(--background-color, #ffffff);
@@ -325,6 +272,35 @@
 .like-icon {
   block-size: 36px;
   inline-size: 39px;
+}
+
+/*Фильтры*/
+.filter-grayscale {
+  filter: grayscale(70%);
+}
+
+.filter-multiple {
+  filter: contrast(50%) hue-rotate(35deg) saturate(130%);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(210deg);
+}
+
+.filter-saturate {
+  filter: saturate(250%);
+}
+
+.filter-invert {
+  filter: invert(100%);
+}
+
+.filter-sepia {
+  filter: sepia(90%);
+}
+
+.filter-blur {
+  filter: blur(10px);
 }
 
 @media (width < 376px) {

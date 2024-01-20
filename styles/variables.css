@@ -6,7 +6,7 @@
   --background-color: var(--color-white, #ffffff);
   --font-family: "Inter", sans-serif;
   --font-weight: 400;
-  --page-accent-font-family: "PressStart2P", fantasy;
+  --second-font__family: "PressStart2P", fantasy;
   --background-image: repeating-linear-gradient(
       to left,
       #d3d3d3 0 2px,
@@ -17,6 +17,6 @@
   --like-main-body-color: none;
   --like-contour-color: var(--text-color, #000000);
   --like-sparks-color: #ff0000;
-  --headings-font-weight: 700;
+  --font-weight-title: 700;
   --button-text-color: var(--background-color, #fff);
 }
