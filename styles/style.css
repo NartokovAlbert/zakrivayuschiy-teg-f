@@ -95,7 +95,6 @@
   transition: width 0.5s ease-in-out;
 }
 
-
 .theme-menu__button:disabled {
   opacity: 0.6;
   cursor: default;
@@ -184,14 +183,6 @@
   line-height: calc(21 / 18);
 }
 
-.card__footer {
-  display: flex;
-  justify-content: end;
-  align-items: stretch;
-  gap: 5px;
-  padding: 25px 25px 23px 25px;
-}
-
 .card__icon-button {
   display: grid;
   border: 2px solid transparent;
@@ -272,6 +263,14 @@
 .like-icon {
   block-size: 36px;
   inline-size: 39px;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: end;
+  align-items: stretch;
+  gap: 5px;
+  padding: 25px 25px 23px 25px;
 }
 
 /*Фильтры*/
