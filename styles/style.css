@@ -71,52 +71,52 @@
 .theme-menu__button {
   position: relative;
   border: none;
+  padding: 1px 0;
   font-size: 14px;
   text-transform: uppercase;
-  background: transparent;
+  background-color: transparent;
   transition: opacity 0.3s ease;
   cursor: pointer;
-  appearance: none;
-}
-
-.theme-menu__button:not(:disabled)::after {
-  content: "";
-  display: block;
-  background: currentColor;
-  transition: transform 0.3s ease;
-  transform: scaleX(0);
-  transform-origin: left;
-  inline-size: 100%;
-  block-size: 2px;
 }
 
 .theme-menu__button:hover {
   opacity: 0.6;
 }
 
-.theme-menu__button:focus {
-  outline: none;
-  opacity: 0.6;
+.theme-menu__button::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  display: block;
+  width: 0%;
+  height: 2px;
+  background-color: var(--themes-main-color);
+  transition: width 0.5s ease-in-out;
 }
 
-.theme-menu__button:focus-visible::after {
-  transform: scaleX(1);
-}
 
 .theme-menu__button:disabled {
   opacity: 0.6;
   cursor: default;
-  pointer-events: none;
 }
 
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
-  animation: arrow 0.5s ease-in-out infinite alternate;
-  inset-inline-start: -20px;
-  inset-block-start: 0px;
+  top: 0;
+  left: -20px;
+  animation: choose 0.5s infinite ease-in-out alternate;
 }
 
+.theme-menu__button:focus-within {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-within::after {
+  width: 100%;
+}
 .main {
   display: grid;
   justify-items: center;
@@ -265,8 +265,8 @@
 }
 
 .button__icon {
-  block-size: 22px;
-  inline-size: 22px;
+  block-size: 20px;
+  inline-size: 20px;
 }
 
 .like-icon {
@@ -276,11 +276,11 @@
 
 /*Фильтры*/
 .filter-grayscale {
-  filter: grayscale(70%);
+  filter: grayscale(0.8);
 }
 
 .filter-multiple {
-  filter: contrast(50%) hue-rotate(35deg) saturate(130%);
+  filter: contrast(200%) blur(0.15rem);
 }
 
 .filter-hue-rotate {
@@ -288,7 +288,7 @@
 }
 
 .filter-saturate {
-  filter: saturate(250%);
+  filter: saturate(158%);
 }
 
 .filter-invert {
@@ -296,14 +296,14 @@
 }
 
 .filter-sepia {
-  filter: sepia(90%);
+  filter: sepia(80%);
 }
 
 .filter-blur {
-  filter: blur(10px);
+  filter: blur(0.3rem);
 }
 
-@media (width < 376px) {
+@media (width <= 376px) {
   .modal {
     padding: 28px 34px 28px 40px;
     max-inline-size: 340px;

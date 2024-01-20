@@ -61,7 +61,7 @@
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks 0.3s ease-in 0.3s 1 alternate;
+  animation: like-sparks 0.3s 0.3s ease-in alternate;
 }
 
 @keyframes heart {
@@ -83,7 +83,6 @@
 }
 
 @keyframes arrow {
-  /* Safari fix */
   from {
     transform: translate(0);
   }
