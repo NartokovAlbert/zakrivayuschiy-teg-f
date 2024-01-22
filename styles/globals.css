@@ -50,17 +50,3 @@ ol {
   white-space: nowrap;
 }
 
-.page {
-  padding-block-start: 100px;
-  color: var(--text-color, #000000);
-  font-family: var(--font-family, "Inter", sans-serif);
-  background-size: cover;
-  background-attachment: fixed;
-  font-variation-settings: "wght" var(--font-weight, 400);
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
-}
-
-.page-title {
-  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-}
