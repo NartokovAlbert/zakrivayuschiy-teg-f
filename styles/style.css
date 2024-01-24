@@ -11,6 +11,7 @@
 
 .page-title {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-decoration: none;
 }
 
 .header {
@@ -24,7 +25,7 @@
 
 .header__title {
   margin-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
-  margin-block-end: 25px;
+  margin-block-end: 20px;
 }
 
 .header__subtitle {
@@ -47,6 +48,7 @@
   line-height: 1.5;
   text-transform: uppercase;
   max-inline-size: 355px;
+  background: var(--background-color, #000000);
 }
 
 .modal[open] {
@@ -85,27 +87,36 @@
 .theme-menu__button {
   position: relative;
   border: none;
-  padding: 1px 0;
   font-size: 14px;
   text-transform: uppercase;
-  background-color: transparent;
+  background: transparent;
   transition: opacity 0.3s ease;
   cursor: pointer;
+  appearance: none;
+}
+
+.theme-menu__button:not(:disabled)::after {
+  content: "";
+  display: block;
+  background: currentColor;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  inline-size: 100%;
+  block-size: 2px;
 }
 
 .theme-menu__button:hover {
   opacity: 0.6;
 }
 
-.theme-menu__button::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  display: block;
-  width: 0%;
-  height: 2px;
-  transition: width 0.3s ease-in-out;
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
 }
 
 .theme-menu__button:disabled {
@@ -117,18 +128,9 @@
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
-  top: 0;
-  left: -20px;
-  animation: choose 0.5s infinite ease-in-out alternate;
-}
-
-.theme-menu__button:focus-within {
-  outline: none;
-  opacity: 0.6;
-}
-
-.theme-menu__button:focus-within::after {
-  width: 100%;
+  animation: arrow 0.5s ease-in-out infinite alternate;
+  inset-inline-start: -20px;
+  inset-block-start: 0px;
 }
 .main {
   display: grid;
@@ -185,6 +187,7 @@
   object-fit: cover;
   object-position: center;
   inline-size: 100%;
+  aspect-ratio: 1 / 1;
 }
 
 .card__content {
@@ -286,13 +289,17 @@
   padding: 25px 25px 23px 25px;
 }
 
+.card__like-button {
+  max-width: 130px;
+}
+
 /*Фильтры*/
 .filter-grayscale {
-  filter: grayscale(0.8);
+  filter: grayscale(70%);
 }
 
 .filter-multiple {
-  filter: contrast(200%) blur(0.15rem);
+  filter: contrast(50%) hue-rotate(35deg) saturate(130%);
 }
 
 .filter-hue-rotate {
@@ -300,7 +307,7 @@
 }
 
 .filter-saturate {
-  filter: saturate(158%);
+  filter: saturate(250%);
 }
 
 .filter-invert {
@@ -308,13 +315,12 @@
 }
 
 .filter-sepia {
-  filter: sepia(80%);
+  filter: sepia(90%);
 }
 
 .filter-blur {
-  filter: blur(0.3rem);
+  filter: blur(10px);
 }
-
 @media (width <= 376px) {
   .modal {
     padding: 28px 34px 28px 40px;
